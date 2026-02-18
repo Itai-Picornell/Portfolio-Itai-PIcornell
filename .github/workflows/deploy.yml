@@ -3,74 +3,71 @@ name: Deploy Portfolio to AWS S3 + CloudFront
 # Disparador: se ejecuta en cada push a la rama 'main'
 # Solo si hay cambios dentro de la carpeta 'frontend/'
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "frontend/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "frontend/**"
 
 jobs:
-    deploy:
-        name: Build & Deploy
-        runs-on: ubuntu-latest
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
 
-        steps:
-            # ── Paso 1: Descarga el código del repositorio ──
-            - name: Checkout repository
-              uses: actions/checkout@v4
+    steps:
+      # ── Paso 1: Descarga el código del repositorio ──
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            # ── Paso 2: Configura Node.js 20 con caché de npm ──
-            - name: Setup Node.js 20
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
-                  cache: "npm"
-                  # La caché se basa en el package-lock.json del frontend
-                  cache-dependency-path: frontend/package-lock.json
+      # ── Paso 2: Configura Node.js 20 con caché de npm ──
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          # La caché se basa en el package-lock.json del frontend
+          cache-dependency-path: frontend/package-lock.json
 
-            # ── Paso 3: Instala dependencias de forma reproducible ──
-            # 'npm ci' es más rápido y seguro que 'npm install' en CI/CD
-            - name: Install dependencies
-              working-directory: frontend
-              run: npm ci
+      # ── Paso 3: Instala dependencias de forma reproducible ──
+      # 'npm ci' es más rápido y seguro que 'npm install' en CI/CD
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
 
-            # ── Paso 4: Genera el build de producción optimizado ──
-            # Vite genera los assets en frontend/dist/
-            - name: Build for production
-              working-directory: frontend
-              run: npm run build
+      # ── Paso 4: Genera el build de producción optimizado ──
+      # Vite genera los assets en frontend/dist/
+      - name: Build for production
+        working-directory: frontend
+        run: npm run build
 
-            # ── Paso 5: Configura las credenciales de AWS ──
-            # Los valores vienen de los Secrets del repositorio en GitHub
-            - name: Configure AWS credentials
-              uses: aws-actions/configure-aws-credentials@v4
-              with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: ${{ secrets.AWS_REGION }}
+      # ── Paso 5: Configura las credenciales de AWS ──
+      # Los valores vienen de los Secrets del repositorio en GitHub
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-            # ── Paso 6: Sincroniza los assets estáticos con S3 ──
-            # Se usa --delete para eliminar archivos obsoletos del bucket
-            # Los assets con hash (JS/CSS) se cachean por 1 año (immutable)
-            - name: Deploy static assets to S3
-              run: |
-                  aws s3 sync frontend/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
-                    --delete \
-                    --cache-control "public, max-age=31536000, immutable" \
-                    --exclude "index.html"
+      # ── Paso 6: Sincroniza los assets estáticos con S3 ──
+      # Se usa --delete para eliminar archivos obsoletos del bucket
+      # Los assets con hash (JS/CSS) se cachean por 1 año (immutable)
+      - name: Deploy static assets to S3
+        run: |
+          aws s3 sync frontend/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "index.html"
 
-            # ── Paso 7: Sube index.html sin caché larga ──
-            # index.html NUNCA debe cachearse para que los cambios sean inmediatos
-            - name: Upload index.html without cache
-              run: |
-                  aws s3 cp frontend/dist/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
-                    --cache-control "no-cache, no-store, must-revalidate" \
-                    --content-type "text/html; charset=utf-8"
+      # ── Paso 7: Sube index.html sin caché larga ──
+      # index.html NUNCA debe cachearse para que los cambios sean inmediatos
+      - name: Upload index.html without cache
+        run: |
+          aws s3 cp frontend/dist/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
+            --cache-control "no-cache, no-store, must-revalidate" \
+            --content-type "text/html; charset=utf-8"
 
-            # ── Paso 8: Invalida la caché de CloudFront ──
-            # Fuerza a CloudFront a servir los nuevos archivos en todos los edge locations
-            - name: Invalidate CloudFront cache
-              run: |
-                  aws cloudfront create-invalidation \
-                    --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-                    --paths "/*"
+      # ── Paso 8: Invalida la caché de CloudFront ──
+      # Fuerza a CloudFront a servir los nuevos archivos en todos los edge locations
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
