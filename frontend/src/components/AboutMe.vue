@@ -21,10 +21,9 @@
         </p>
       </div>
 
-      <!-- Layout de dos columnas: bio + foto | habilidades -->
-      <div class="grid lg:grid-cols-2 gap-16 items-start">
-
-        <!-- Columna izquierda: foto y bio -->
+      <!-- Layout de una columna centrada: bio + foto -->
+      <div class="max-w-4xl mx-auto">
+        <!-- Contenido principal: foto y bio -->
         <div class="space-y-8">
 
           <!-- Foto de perfil con decoración -->
@@ -52,7 +51,7 @@
           </div>
 
           <!-- Texto de presentación -->
-          <div class="space-y-4 text-gray-300 leading-relaxed">
+          <div class="space-y-4 text-gray-300 leading-relaxed text-lg">
             <p>
               Soy un desarrollador Full Stack con más de 3 años de experiencia construyendo
               aplicaciones web modernas y escalables. Me especializo en el ecosistema
@@ -97,48 +96,6 @@
             </a>
           </div>
         </div>
-
-        <!-- Columna derecha: habilidades técnicas por categoría -->
-        <div class="space-y-8">
-          <div
-            v-for="category in skillCategories"
-            :key="category.id"
-            class="card p-6"
-          >
-            <!-- Encabezado de categoría -->
-            <div class="flex items-center gap-3 mb-5">
-              <span class="text-2xl" aria-hidden="true">{{ category.icon }}</span>
-              <h3 class="text-lg font-semibold text-white">{{ category.label }}</h3>
-            </div>
-
-            <!-- Lista de habilidades con barra de progreso -->
-            <ul class="space-y-4" role="list">
-              <li
-                v-for="skill in category.skills"
-                :key="skill.name"
-                class="space-y-1.5"
-              >
-                <div class="flex justify-between items-center">
-                  <span class="text-sm font-medium text-gray-300">{{ skill.name }}</span>
-                  <span class="text-xs text-gray-500 font-mono">{{ skill.level }}%</span>
-                </div>
-                <!-- Barra de progreso animada -->
-                <div class="h-1.5 bg-dark-600 rounded-full overflow-hidden">
-                  <div
-                    class="h-full rounded-full bg-gradient-to-r from-primary-600 to-accent-500
-                           transition-all duration-1000 ease-out"
-                    :style="{ width: `${skill.level}%` }"
-                    :aria-label="`${skill.name}: ${skill.level}%`"
-                    role="progressbar"
-                    :aria-valuenow="skill.level"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  />
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -149,5 +106,5 @@
  * AboutMe.vue — Sección de presentación personal.
  * Muestra foto, bio y habilidades técnicas organizadas por categoría.
  */
-import { skillCategories } from '@/data/skills.js'
+
 </script>

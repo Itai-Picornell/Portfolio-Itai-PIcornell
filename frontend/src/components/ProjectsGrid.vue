@@ -62,45 +62,7 @@
         <p class="text-lg">No hay proyectos con esta tecnología aún.</p>
       </div>
 
-      <!-- Sección de contacto / CTA al final -->
-      <div
-        id="contact"
-        class="mt-20 text-center card p-10 sm:p-16 relative overflow-hidden"
-      >
-        <!-- Fondo decorativo del CTA -->
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-600/10 to-accent-500/10 pointer-events-none" aria-hidden="true" />
 
-        <div class="relative z-10">
-          <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4">
-            ¿Tienes un proyecto en mente?
-          </h3>
-          <p class="text-gray-400 mb-8 max-w-md mx-auto">
-            Estoy disponible para proyectos freelance y oportunidades de trabajo.
-            ¡Hablemos!
-          </p>
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="mailto:itai@example.com"
-              class="btn-primary"
-            >
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-              Enviar un email
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-secondary"
-            >
-              Conectar en LinkedIn
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 </template>
@@ -109,7 +71,8 @@
 import { ref, computed } from 'vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import { projects } from '@/data/projects.js'
-import { filterTags } from '@/data/skills.js'
+// Tags disponibles para filtrar los proyectos por tecnología
+const filterTags = ['Todos', 'Vue.js', 'Node.js', 'AWS', 'Docker', 'React']
 
 /**
  * Filtro activo actualmente seleccionado.
