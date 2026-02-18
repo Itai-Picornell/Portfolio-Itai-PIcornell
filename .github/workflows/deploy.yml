@@ -70,4 +70,7 @@ jobs:
       # ── Paso 8: Invalida la caché de CloudFront ──
       # Fuerza a CloudFront a servir los nuevos archivos en todos los edge locations
       - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
