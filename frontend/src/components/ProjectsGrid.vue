@@ -4,7 +4,7 @@
   -->
   <section
     id="projects"
-    class="py-24 sm:py-32 relative overflow-hidden"
+    class="py-16 sm:py-20 relative overflow-hidden"
     aria-label="Proyectos"
   >
     <!-- Decoración de fondo -->
@@ -13,7 +13,7 @@
     <div class="section-container">
 
       <!-- Encabezado de sección -->
-      <div class="mb-12">
+      <div class="mb-8">
         <div class="gradient-line" />
         <h2 class="section-title">Proyectos</h2>
         <p class="section-subtitle">

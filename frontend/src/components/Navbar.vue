@@ -144,10 +144,10 @@ import { ref, onMounted, onUnmounted } from 'vue'
  * El 'id' debe coincidir con el id del elemento HTML de cada sección.
  */
 const navLinks = [
-  { id: 'hero',     label: 'Inicio'    },
-  { id: 'about',    label: 'Sobre mí'  },
-  { id: 'projects', label: 'Proyectos' },
-  { id: 'contact',  label: 'Contacto'  },
+  { id: 'hero',             label: 'Inicio'         },
+  { id: 'experience',       label: 'Experiencia'    },
+  { id: 'projects',         label: 'Proyectos'      },
+  { id: 'certifications',   label: 'Certificaciones'},
 ]
 
 // Estado reactivo: controla si el navbar tiene fondo sólido
