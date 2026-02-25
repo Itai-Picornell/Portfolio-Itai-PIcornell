@@ -89,7 +89,7 @@
                animate-fade-in-up animate-delay-500"
       >
         <a
-          href="https://github.com"
+          href="https://github.com/Itai-Picornell"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary text-sm py-2 px-4"
@@ -100,7 +100,7 @@
           GitHub
         </a>
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/itai-picornell-cort%C3%A9s-169929349/"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary text-sm py-2 px-4"
