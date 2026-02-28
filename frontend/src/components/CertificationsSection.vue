@@ -53,6 +53,16 @@
                 </h3>
                 <p class="text-gray-400 mt-1 text-sm">{{ cert.issuer }}</p>
               </div>
+              <!-- Badge de estado "En proceso" -->
+              <span
+                v-if="cert.status === 'pending'"
+                class="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+                       bg-amber-500/15 text-amber-400 text-xs font-semibold tracking-wide
+                       border border-amber-500/20"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                En proceso
+              </span>
             </div>
 
             <!-- Descripción de la certificación -->
@@ -60,9 +70,12 @@
               {{ cert.description }}
             </p>
 
-            <!-- Footer: código de verificación + enlace -->
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4
-                        pt-4 border-t border-white/5">
+            <!-- Footer: verificación (solo si la cert está obtenida) -->
+            <div
+              v-if="cert.status !== 'pending'"
+              class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4
+                        pt-4 border-t border-white/5"
+            >
               <!-- Código de verificación -->
               <div class="text-xs text-gray-500">
                 <span class="font-medium text-gray-400">Código de verificación:</span>

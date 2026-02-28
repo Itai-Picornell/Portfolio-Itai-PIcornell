@@ -70,7 +70,7 @@
           Ver mis proyectos
         </button>
         <a
-          href="/CV_Itai_Picornell_Cortés.pdf"
+          href="/CV_Itai_Picornell.pdf"
           download
           class="btn-secondary"
         >
