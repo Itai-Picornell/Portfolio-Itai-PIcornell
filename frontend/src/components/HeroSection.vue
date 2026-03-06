@@ -1,7 +1,7 @@
 <template>
   <!--
     Sección Hero: primera pantalla del portfolio.
-    Ocupa el 100% del viewport con un fondo oscuro y animaciones de entrada.
+    Ocupa el 100% del viewport con animaciones de entrada.
   -->
   <section
     id="hero"
@@ -13,17 +13,17 @@
       <!-- Orbe de gradiente superior izquierdo -->
       <div
         class="absolute top-1/4 -left-32 w-96 h-96 rounded-full
-               bg-primary-600/20 blur-3xl animate-float"
+               bg-gray-200/50 blur-3xl animate-float"
       />
       <!-- Orbe de gradiente inferior derecho -->
       <div
         class="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full
-               bg-accent-500/15 blur-3xl animate-float animate-delay-300"
+               bg-gray-100/60 blur-3xl animate-float animate-delay-300"
       />
       <!-- Grid de puntos decorativos -->
       <div
-        class="absolute inset-0 opacity-[0.03]"
-        style="background-image: radial-gradient(circle, #6366f1 1px, transparent 1px);
+        class="absolute inset-0 opacity-[0.04]"
+        style="background-image: radial-gradient(circle, #cccccc 1px, transparent 1px);
                background-size: 40px 40px;"
       />
     </div>
@@ -33,23 +33,18 @@
 
       <!-- Nombre principal con gradiente -->
       <h1
-        class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white
-               leading-none mb-6 animate-fade-in-up animate-delay-100"
+        class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900
+               leading-none mb-6 tracking-tight animate-fade-in-up animate-delay-100"
       >
         Hola, soy
         <br />
         <span class="text-gradient">Itai Picornell</span>
       </h1>
 
-      <!-- Título profesional -->
-      <p
-        class="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-light mb-6
-               animate-fade-in-up animate-delay-200"
-      ></p>
 
       <!-- Descripción breve -->
       <p
-        class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-12
+        class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12
                leading-relaxed animate-fade-in-up animate-delay-300"
       >
         Construyo aplicaciones web modernas y escalables con Vue.js, Node.js y

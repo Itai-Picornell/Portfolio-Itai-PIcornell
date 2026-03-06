@@ -4,10 +4,11 @@
     Cambia de transparente a sólida cuando el usuario hace scroll.
   -->
   <header
+    ref="headerRef"
     :class="[
       'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
       isScrolled
-        ? 'glass shadow-lg shadow-black/20'
+        ? 'glass shadow-sm shadow-black/5'
         : 'bg-transparent',
     ]"
     role="banner"
@@ -24,13 +25,13 @@
         aria-label="Ir al inicio"
       >
         <span
-          class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500
+          class="w-8 h-8 rounded-lg bg-gray-900
                  flex items-center justify-center text-white font-bold text-sm
                  group-hover:scale-110 transition-transform duration-300"
         >
           IP
         </span>
-        <span class="font-bold text-white text-lg hidden sm:block">
+        <span class="font-bold text-gray-900 text-lg hidden sm:block">
           Itai <span class="text-gradient">Picornell</span>
         </span>
       </a>
@@ -43,8 +44,8 @@
             :class="[
               'px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200',
               activeSection === link.id
-                ? 'text-primary-400 bg-primary-500/10'
-                : 'text-gray-400 hover:text-white hover:bg-white/5',
+                ? 'text-gray-900 bg-gray-100'
+                : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100',
             ]"
             @click.prevent="scrollToSection(link.id)"
           >
@@ -68,7 +69,7 @@
 
       <!-- Botón hamburguesa — móvil -->
       <button
-        class="md:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5
+        class="md:hidden p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100
                transition-colors duration-200"
         :aria-expanded="isMobileMenuOpen"
         aria-controls="mobile-menu"
@@ -104,7 +105,7 @@
       <div
         v-if="isMobileMenuOpen"
         id="mobile-menu"
-        class="md:hidden glass border-t border-white/5"
+        class="md:hidden glass border-t border-gray-200"
       >
         <ul class="section-container py-4 flex flex-col gap-1" role="list">
           <li v-for="link in navLinks" :key="link.id">
@@ -113,19 +114,19 @@
               :class="[
                 'block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200',
                 activeSection === link.id
-                  ? 'text-primary-400 bg-primary-500/10'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5',
+                  ? 'text-gray-900 bg-gray-100'
+                  : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100',
               ]"
               @click.prevent="handleMobileLinkClick(link.id)"
             >
               {{ link.label }}
             </a>
           </li>
-          <li class="pt-2 border-t border-white/5">
+          <li class="pt-2 border-t border-gray-200">
             <a
               href="mailto:itai@example.com"
-              class="block px-4 py-3 text-sm font-medium text-primary-400
-                     hover:text-white transition-colors duration-200"
+              class="block px-4 py-3 text-sm font-medium text-gray-700
+                     hover:text-gray-900 transition-colors duration-200"
             >
               ✉️ Contactar
             </a>
@@ -138,6 +139,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+// Referencia al elemento <header> para detectar clicks fuera del menú
+const headerRef = ref(null)
 
 /**
  * Links de navegación del menú.
@@ -196,6 +200,15 @@ const toggleMobileMenu = () => {
 }
 
 /**
+ * Cierra el menú móvil al hacer click fuera del header.
+ */
+const handleClickOutside = (event) => {
+  if (isMobileMenuOpen.value && headerRef.value && !headerRef.value.contains(event.target)) {
+    isMobileMenuOpen.value = false
+  }
+}
+
+/**
  * Cierra el menú móvil y navega a la sección seleccionada.
  * @param {string} sectionId - El id de la sección destino
  */
@@ -204,15 +217,15 @@ const handleMobileLinkClick = (sectionId) => {
   scrollToSection(sectionId)
 }
 
-// Registra el listener de scroll al montar el componente
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  document.addEventListener('click', handleClickOutside, true)
   handleScroll()
 })
 
-// Limpia el listener al desmontar para evitar memory leaks
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  document.removeEventListener('click', handleClickOutside, true)
 })
 </script>
 

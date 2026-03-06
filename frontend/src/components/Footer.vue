@@ -1,7 +1,7 @@
 <template>
   <!-- Footer del portfolio con links sociales y copyright -->
   <footer
-    class="border-t border-white/5 py-10"
+    class="border-t border-gray-200 py-10"
     role="contentinfo"
   >
     <div class="section-container">
@@ -10,14 +10,14 @@
         <!-- Logo y tagline -->
         <div class="flex items-center gap-3">
           <div
-            class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500
+            class="w-8 h-8 rounded-lg bg-gray-900
                    flex items-center justify-center text-white font-bold text-sm"
           >
             IP
           </div>
           <div>
-            <div class="text-white font-semibold text-sm">Itai Picornell</div>
-            <div class="text-gray-500 text-xs">Full Stack & Cloud Engineer</div>
+            <div class="text-gray-900 font-semibold text-sm">Itai Picornell</div>
+            <div class="text-gray-400 text-xs">Full Stack & Cloud Engineer</div>
           </div>
         </div>
 
@@ -30,7 +30,7 @@
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/5
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
                        transition-all duration-200"
                 aria-label="Perfil de GitHub"
               >
@@ -45,7 +45,7 @@
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/5
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
                        transition-all duration-200"
                 aria-label="Perfil de LinkedIn"
               >
@@ -58,7 +58,7 @@
             <li>
               <a
                 href="mailto:itai@example.com"
-                class="p-2.5 rounded-lg text-gray-500 hover:text-white hover:bg-white/5
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
                        transition-all duration-200"
                 aria-label="Enviar email"
               >

@@ -18,7 +18,7 @@
       />
       <!-- Overlay oscuro con links de acción -->
       <div
-        class="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100
+        class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100
                transition-opacity duration-300 flex items-center justify-center gap-4"
       >
         <a
@@ -26,7 +26,7 @@
           :href="project.githubUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-3 rounded-full glass text-white hover:text-primary-400
+          class="p-3 rounded-full glass text-white hover:text-gray-200
                  hover:scale-110 transition-all duration-200"
           :aria-label="`Ver código de ${project.title} en GitHub`"
         >
@@ -40,7 +40,7 @@
           :href="project.liveUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-3 rounded-full glass text-white hover:text-accent-400
+          class="p-3 rounded-full glass text-white hover:text-gray-200
                  hover:scale-110 transition-all duration-200"
           :aria-label="`Ver demo en vivo de ${project.title}`"
         >
@@ -57,7 +57,7 @@
       <div
         v-if="project.featured"
         class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold
-               bg-gradient-to-r from-primary-600 to-accent-500 text-white shadow-lg"
+               bg-gray-900 text-white shadow-lg"
       >
         ⭐ Destacado
       </div>
@@ -66,13 +66,13 @@
     <!-- Contenido de la tarjeta -->
     <div class="flex flex-col flex-1 p-6">
       <!-- Título del proyecto -->
-      <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-400
+      <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-500
                  transition-colors duration-200">
         {{ project.title }}
       </h3>
 
       <!-- Descripción del proyecto -->
-      <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+      <p class="text-gray-500 text-sm leading-relaxed mb-4 flex-1">
         {{ project.description }}
       </p>
 

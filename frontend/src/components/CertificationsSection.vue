@@ -9,7 +9,7 @@
     aria-label="Certificaciones"
   >
     <!-- Decoración de fondo -->
-    <div class="absolute top-1/2 -right-32 w-80 h-80 bg-primary-600/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+    <div class="absolute top-1/2 -right-32 w-80 h-80 bg-gray-200/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
     <div class="section-container">
 
@@ -27,7 +27,7 @@
         <article
           v-for="cert in certifications"
           :key="cert.id"
-          class="card overflow-hidden hover:shadow-xl hover:shadow-primary-500/10
+          class="card overflow-hidden hover:shadow-lg hover:shadow-black/5
                  transition-all duration-300 group"
         >
           <div class="p-6 sm:p-8">
@@ -46,12 +46,12 @@
               </div>
               <div>
                 <h3
-                  class="text-lg sm:text-xl font-bold text-white
-                         group-hover:text-primary-400 transition-colors duration-200"
+                  class="text-lg sm:text-xl font-bold text-gray-900
+                         group-hover:text-gray-500 transition-colors duration-200"
                 >
                   {{ cert.name }}
                 </h3>
-                <p class="text-gray-400 mt-1 text-sm">{{ cert.issuer }}</p>
+                <p class="text-gray-500 mt-1 text-sm">{{ cert.issuer }}</p>
               </div>
               <!-- Badge de estado "En proceso" -->
               <span
@@ -66,7 +66,7 @@
             </div>
 
             <!-- Descripción de la certificación -->
-            <p class="text-gray-400 leading-relaxed mb-6 text-sm sm:text-base">
+            <p class="text-gray-500 leading-relaxed mb-6 text-sm sm:text-base">
               {{ cert.description }}
             </p>
 
@@ -74,11 +74,11 @@
             <div
               v-if="cert.status !== 'pending'"
               class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4
-                        pt-4 border-t border-white/5"
+                        pt-4 border-t border-gray-200"
             >
               <!-- Código de verificación -->
               <div class="text-xs text-gray-500">
-                <span class="font-medium text-gray-400">Código de verificación:</span>
+                <span class="font-medium text-gray-500">Código de verificación:</span>
                 <span class="ml-2 font-mono">{{ cert.verificationCode }}</span>
               </div>
 

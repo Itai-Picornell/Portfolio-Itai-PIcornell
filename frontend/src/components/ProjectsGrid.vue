@@ -8,7 +8,7 @@
     aria-label="Proyectos"
   >
     <!-- Decoración de fondo -->
-    <div class="absolute bottom-0 left-0 w-72 h-72 bg-accent-500/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
+    <div class="absolute bottom-0 left-0 w-72 h-72 bg-gray-100/50 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
     <div class="section-container">
 
@@ -33,8 +33,8 @@
           :class="[
             'px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
             activeFilter === tag
-              ? 'bg-primary-600 text-white shadow-lg shadow-primary-500/30'
-              : 'bg-dark-700 text-gray-400 hover:text-white hover:bg-dark-600 border border-dark-500',
+              ? 'bg-gray-900 text-white shadow-md shadow-black/10'
+              : 'bg-gray-100 text-gray-500 hover:text-gray-900 hover:bg-gray-200 border border-gray-200',
           ]"
           @click="setFilter(tag)"
           :aria-pressed="activeFilter === tag"
