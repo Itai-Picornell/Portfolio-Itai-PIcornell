@@ -9,12 +9,11 @@
 
         <!-- Logo y tagline -->
         <div class="flex items-center gap-3">
-          <div
-            class="w-8 h-8 rounded-lg bg-gray-900
-                   flex items-center justify-center text-white font-bold text-sm"
-          >
-            IP
-          </div>
+          <img
+            src="/Perfil.jpg"
+            alt="Itai Picornell"
+            class="w-8 h-8 rounded-lg object-cover"
+          />
           <div>
             <div class="text-gray-900 font-semibold text-sm">Itai Picornell</div>
             <div class="text-gray-400 text-xs">Full Stack & Cloud Engineer</div>

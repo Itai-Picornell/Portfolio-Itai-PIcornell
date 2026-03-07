@@ -57,10 +57,10 @@
               <span
                 v-if="cert.status === 'pending'"
                 class="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full
-                       bg-amber-500/15 text-amber-400 text-xs font-semibold tracking-wide
-                       border border-amber-500/20"
+                       bg-amber-700/15 text-amber-600 text-xs font-semibold tracking-wide
+                       border border-amber-700/20"
               >
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
                 En proceso
               </span>
             </div>

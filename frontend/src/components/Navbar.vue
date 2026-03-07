@@ -24,13 +24,12 @@
         @click.prevent="scrollToSection('hero')"
         aria-label="Ir al inicio"
       >
-        <span
-          class="w-8 h-8 rounded-lg bg-gray-900
-                 flex items-center justify-center text-white font-bold text-sm
+        <img
+          src="/Perfil.jpg"
+          alt="Itai Picornell"
+          class="w-8 h-8 rounded-lg object-cover
                  group-hover:scale-110 transition-transform duration-300"
-        >
-          IP
-        </span>
+        />
         <span class="font-bold text-gray-900 text-lg hidden sm:block">
           Itai <span class="text-gradient">Picornell</span>
         </span>
