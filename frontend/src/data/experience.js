@@ -10,15 +10,12 @@
 export const workExperience = [
     {
         id: 1,
-        title: 'Software Developer Internship',
-        company: 'Empresa S.L.',
-        period: 'Marzo 2025 - Noviembre 2025',
+        title: 'Web Developer Intern',
+        company: 'ClickToTravel',
+        period: 'February 2026 - June 2026',
         description:
-            'Desarrollo frontend implementando nuevas funcionalidades, desarrollando landings desde cero ' +
-            'y mejorando interfaces de usuario con JavaScript y PHP. Apoyo en corrección de bugs backend ' +
-            'y ajustes de consultas SQL integradas en la API. Experiencia práctica en debugging, ' +
-            'implementación de features y trabajo en equipo en un entorno de desarrollo real.',
-        technologies: ['PHP', 'JavaScript', 'SQL', 'HTML', 'CSS', 'Bootstrap', 'GitLab'],
+            'This internship provided me with an in-depth understanding of the professional Software Development Life Cycle (SDLC). My role involved creating and configuring Development and Staging environments (Laravel and Angular SSR) on Linux servers. I was responsible for deploying and adapting pre-existing enterprise architectures, managing the underlying infrastructure (PHP, Node.js, MariaDB/MySQL), and automating continuous delivery through Bitbucket CI/CD pipelines.',
+        technologies: ['PHP', 'Bitbucket', 'Laravel', 'Angular SSR', 'MariaDB/MySQL'],
     },
 ]
 
@@ -28,11 +25,10 @@ export const workExperience = [
 export const education = [
     {
         id: 1,
-        degree: 'Ciclo Superior en Desarrollo de Aplicaciones Web (DAW)',
-        institution: 'Institut de Formació Professional, Mallorca',
-        period: 'Septiembre 2024 - Junio 2026',
+        degree: 'Higher Education Diploma in Multi-platform Application Development',
+        institution: 'FP Sant Josep Obrer',
+        period: 'September 2024 - June 2026',
         description:
-            'Formación especializada en desarrollo de aplicaciones web: programación orientada a objetos, ' +
-            'bases de datos relacionales, desarrollo frontend y backend, y despliegue en entornos cloud.',
+            'Specialized training in multi-platform application development, acquiring key knowledge in software engineering, database administration, backend programming, and systems virtualization.',
     },
 ]

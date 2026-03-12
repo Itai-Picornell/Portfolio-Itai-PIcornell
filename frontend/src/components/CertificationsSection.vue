@@ -16,10 +16,7 @@
       <!-- Encabezado de sección -->
       <div class="mb-10">
         <div class="gradient-line" />
-        <h2 class="section-title">Certificaciones</h2>
-        <p class="section-subtitle">
-          Certificaciones profesionales que avalan mis conocimientos técnicos.
-        </p>
+        <h2 class="section-title">Certifications</h2>
       </div>
 
       <!-- Grid de tarjetas de certificaciones -->
@@ -61,14 +58,9 @@
                        border border-amber-700/20"
               >
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
-                En proceso
+                In Progress
               </span>
             </div>
-
-            <!-- Descripción de la certificación -->
-            <p class="text-gray-500 leading-relaxed mb-6 text-sm sm:text-base">
-              {{ cert.description }}
-            </p>
 
             <!-- Footer: verificación (solo si la cert está obtenida) -->
             <div
@@ -78,7 +70,7 @@
             >
               <!-- Código de verificación -->
               <div class="text-xs text-gray-500">
-                <span class="font-medium text-gray-500">Código de verificación:</span>
+                <span class="font-medium text-gray-500">Verification code:</span>
                 <span class="ml-2 font-mono">{{ cert.verificationCode }}</span>
               </div>
 
@@ -90,7 +82,7 @@
                 class="btn-primary text-sm py-2 px-4 self-start sm:self-auto"
                 :aria-label="`Verificar credencial: ${cert.name}`"
               >
-                Ver credencial
+                View credential
                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"

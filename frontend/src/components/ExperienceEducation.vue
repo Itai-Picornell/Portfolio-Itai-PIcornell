@@ -17,18 +17,16 @@
       <!-- Encabezado de sección -->
       <div class="mb-10">
         <div class="gradient-line" />
-        <h2 class="section-title">Educación &amp; Experiencia</h2>
+        <h2 class="section-title">Education &amp; Experience</h2>
         <p class="section-subtitle">
-          Mi trayectoria profesional y formación académica.
+          My professional journey and academic background.
         </p>
       </div>
 
       <!-- ── Experiencia Profesional ── -->
       <div class="mb-10">
-        <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-          <span class="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200
-                       flex items-center justify-center text-gray-600 text-sm">💼</span>
-          Experiencia Profesional
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">
+          Professional Experience
         </h3>
 
         <div class="space-y-6">
@@ -71,10 +69,8 @@
 
       <!-- ── Educación ── -->
       <div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
-          <span class="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200
-                       flex items-center justify-center text-gray-600 text-sm">🎓</span>
-          Educación
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">
+          Education
         </h3>
 
         <div class="space-y-6">

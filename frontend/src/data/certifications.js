@@ -6,11 +6,9 @@
 export const certifications = [
     {
         id: 1,
-        name: 'Comptia Security+',
-        issuer: 'Comptia',
+        name: 'CompTIA Security+',
+        issuer: 'CompTIA',
         status: 'pending',
-        description:
-            'Certificación profesional que valida la experiencia en seguridad informática. Actualmente en proceso de preparación del examen.',
         badge: '/comptia-security-plus.webp',
     },
 ]

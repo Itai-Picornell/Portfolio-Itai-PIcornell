@@ -63,7 +63,7 @@
             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
           />
         </svg>
-        Contactar
+        Contact
       </a>
 
       <!-- Botón hamburguesa — móvil -->
@@ -127,7 +127,7 @@
               class="block px-4 py-3 text-sm font-medium text-gray-700
                      hover:text-gray-900 transition-colors duration-200"
             >
-              ✉️ Contactar
+            Contact
             </a>
           </li>
         </ul>
@@ -147,10 +147,10 @@ const headerRef = ref(null)
  * El 'id' debe coincidir con el id del elemento HTML de cada sección.
  */
 const navLinks = [
-  { id: 'hero',             label: 'Inicio'         },
-  { id: 'experience',       label: 'Experiencia'    },
-  { id: 'projects',         label: 'Proyectos'      },
-  { id: 'certifications',   label: 'Certificaciones'},
+  { id: 'hero',             label: 'Home'           },
+  { id: 'experience',       label: 'Experience'     },
+  { id: 'projects',         label: 'Projects'       },
+  { id: 'certifications',   label: 'Certifications' },
 ]
 
 // Estado reactivo: controla si el navbar tiene fondo sólido

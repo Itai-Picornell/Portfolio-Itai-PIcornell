@@ -75,7 +75,7 @@
         <p class="text-gray-600 text-xs text-center sm:text-right">
           © {{ currentYear }} Itai Picornell.
           <br class="sm:hidden" />
-          Hecho con Vue.js &amp; ☁️ AWS.
+          Built with Vue.js &amp; ☁️ AWS.
         </p>
       </div>
     </div>

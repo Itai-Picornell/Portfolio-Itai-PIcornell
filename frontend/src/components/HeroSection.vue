@@ -36,7 +36,7 @@
         class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900
                leading-none mb-6 tracking-tight animate-fade-in-up animate-delay-100"
       >
-        Hola, soy
+        Hi, I'm
         <br />
         <span class="text-gradient">Itai Picornell</span>
       </h1>
@@ -47,8 +47,7 @@
         class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12
                leading-relaxed animate-fade-in-up animate-delay-300"
       >
-        Construyo aplicaciones web modernas y escalables con Vue.js, Node.js y
-        arquitecturas cloud en AWS. Apasionado por el código limpio y la experiencia de usuario.
+        Final Year Student in Multi-platform Application Development. Building a strong foundation in software creation, with a deep passion and focus on Cloud Infrastructure and Cybersecurity.
       </p>
 
       <!-- Botones de acción -->
@@ -62,20 +61,8 @@
               d="M19 11H5m14 0l-7 7m7-7l-7-7"
             />
           </svg>
-          Ver mis proyectos
+          View my projects
         </button>
-        <a
-          href="/CV_Itai_Picornell.pdf"
-          download
-          class="btn-secondary"
-        >
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-            />
-          </svg>
-          Descargar CV
-        </a>
       </div>
 
       <!-- Links a redes sociales, centrados debajo de los botones -->

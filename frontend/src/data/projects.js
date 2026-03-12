@@ -8,7 +8,7 @@ export const projects = [
         id: 1,
         title: 'Portfolio Itai Picornell',
         description:
-            'Portfolio con Arquitectura Serverless en AWS. Desarrollado con Vue 3 + Vite, alojado en S3 + CloudFront y despliegue automatizado con GitHub Actions (CI/CD).',
+            'Serverless architecture portfolio on AWS. Built with Vue 3 + Vite, hosted on Amazon S3 + CloudFront, with automated deployment using GitHub Actions (CI/CD).',
         image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
         technologies: ['Vite', 'Vue.js', 'Tailwind CSS', 'AWS S3', 'CloudFront', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Portfolio-Itai-PIcornell',
@@ -19,7 +19,7 @@ export const projects = [
         id: 2,
         title: 'Gienco Web',
         description:
-            'SPA para grupo Gienco, con arquitectura serverless en AWS. Desarrollado con Vue 3 + Vite, alojado en S3 + CloudFront y despliegue automatizado con GitHub Actions (CI/CD).',
+            'Single Page Application (SPA) for Gienco Group, featuring a serverless architecture on AWS. Built with Vue 3 + Vite, hosted on Amazon S3 + CloudFront, with automated deployment via GitHub Actions (CI/CD).',
         technologies: ['Vite', 'Vue.js', 'Tailwind CSS', 'AWS S3', 'CloudFront', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Gienco-Web',
         liveUrl: 'https://d33kjtzxmbw87t.cloudfront.net/',
