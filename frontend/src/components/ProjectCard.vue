@@ -8,11 +8,11 @@
     :aria-label="`Proyecto: ${project.title}`"
   >
     <!-- Diagrama del proyecto con overlay en hover -->
-    <div class="relative overflow-hidden bg-white p-4" style="min-height: 280px;">
+    <div class="relative overflow-hidden bg-white p-4 flex items-center justify-center" style="height: 320px;">
       <img
         :src="project.image"
         :alt="`Diagrama de arquitectura de ${project.title}`"
-        class="w-full h-full object-contain transition-transform duration-500
+        class="max-w-full max-h-full object-contain transition-transform duration-500
                group-hover:scale-105"
         loading="lazy"
       />

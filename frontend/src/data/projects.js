@@ -19,7 +19,7 @@ export const projects = [
         id: 2,
         title: 'Gienco Web',
         description:
-            'Single Page Application (SPA) for Gienco Group, featuring a serverless architecture on AWS. Built with Vue 3 + Vite, hosted on Amazon S3 + CloudFront, with automated deployment via GitHub Actions (CI/CD).',
+            'Single Page Application (SPA) for Gienco Group featuring a serverless AWS architecture (Lambda, API Gateway, DynamoDB). Built with Vue 3 + Vite, hosted on S3 + CloudFront, with automated CI/CD deployments via GitHub Actions.',
         image: '/projects/Diagrama_Gienco.svg',
         technologies: ['Vite', 'Vue.js', 'Tailwind CSS', 'AWS S3', 'CloudFront', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Gienco-Web',

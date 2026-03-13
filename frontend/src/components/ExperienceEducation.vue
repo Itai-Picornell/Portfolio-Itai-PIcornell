@@ -18,9 +18,6 @@
       <div class="mb-10">
         <div class="gradient-line" />
         <h2 class="section-title">Education &amp; Experience</h2>
-        <p class="section-subtitle">
-          My professional journey and academic background.
-        </p>
       </div>
 
       <!-- ── Experiencia Profesional ── -->

@@ -14,7 +14,7 @@ const routes = [
         name: 'home',
         component: HomeView,
         meta: {
-            title: 'Itai Picornell — Portfolio',
+            title: 'Itai Picornell | Portfolio',
         },
     },
     // Ruta comodín: redirige cualquier URL no encontrada al home
@@ -45,7 +45,7 @@ const router = createRouter({
 
 // Actualiza el título de la pestaña del navegador en cada navegación
 router.afterEach((to) => {
-    document.title = to.meta.title || 'Itai Picornell — Portfolio'
+    document.title = to.meta.title || 'Itai Picornell | Portfolio'
 })
 
 export default router

@@ -16,12 +16,7 @@
       <div class="mb-8">
         <div class="gradient-line" />
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">
-          A selection of my recent work.
-        </p>
       </div>
-
-
 
       <!-- Grid de tarjetas de proyectos -->
       <div class="grid sm:grid-cols-2 gap-6">
