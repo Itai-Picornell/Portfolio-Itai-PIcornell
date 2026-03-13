@@ -4,15 +4,30 @@ node_modules/
 .pnp.js
 
 # ── Build de producción ────────────────────────────────────
+dist/
+build/
 frontend/dist/
 frontend/dist-ssr/
 
 # ── Variables de entorno (NUNCA subir al repositorio) ──────
 .env
+.env.*
 .env.local
 .env.*.local
 .env.development
 .env.production
+
+# ── Claves y credenciales (OPSEC) ─────────────────────────
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.jks
+credentials
+credentials.json
+**/aws-exports.js
+**/amplifyconfiguration.json
 
 # ── Logs ──────────────────────────────────────────────────
 npm-debug.log*
@@ -31,11 +46,12 @@ lerna-debug.log*
 *.iml
 *.iws
 
-# ── Sistema operativo: macOS ───────────────────────────────
+# ── Sistema operativo ─────────────────────────────────────
 .DS_Store
 .AppleDouble
 .LSOverride
 Thumbs.db
+Desktop.ini
 
 # ── Caché de herramientas ──────────────────────────────────
 .cache/

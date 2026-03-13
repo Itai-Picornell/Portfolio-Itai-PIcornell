@@ -5,32 +5,19 @@
     role="contentinfo"
   >
     <div class="section-container">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="relative flex items-center justify-center">
 
-        <!-- Logo y tagline -->
-        <div class="flex items-center gap-3">
-          <img
-            src="/Perfil.jpg"
-            alt="Itai Picornell"
-            class="w-8 h-8 rounded-lg object-cover"
-          />
-          <div>
-            <div class="text-gray-900 font-semibold text-sm">Itai Picornell</div>
-            <div class="text-gray-400 text-xs">Full Stack & Cloud Engineer</div>
-          </div>
-        </div>
-
-        <!-- Links de redes sociales -->
+        <!-- Links de redes sociales (centrados) -->
         <nav aria-label="Redes sociales">
           <ul class="flex items-center gap-3" role="list">
             <!-- GitHub -->
             <li>
               <a
-                href="https://github.com"
+                href="https://github.com/Itai-Picornell"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
-                       transition-all duration-200"
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900
+                       transition-colors duration-200"
                 aria-label="Perfil de GitHub"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -41,11 +28,11 @@
             <!-- LinkedIn -->
             <li>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/itai-picornell-169929349/"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
-                       transition-all duration-200"
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900
+                       transition-colors duration-200"
                 aria-label="Perfil de LinkedIn"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -57,8 +44,8 @@
             <li>
               <a
                 href="mailto:itai@example.com"
-                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900 hover:bg-gray-100
-                       transition-all duration-200"
+                class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900
+                       transition-colors duration-200"
                 aria-label="Enviar email"
               >
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,24 +57,8 @@
             </li>
           </ul>
         </nav>
-
-        <!-- Copyright con año dinámico -->
-        <p class="text-gray-600 text-xs text-center sm:text-right">
-          © {{ currentYear }} Itai Picornell.
-          <br class="sm:hidden" />
-          Built with Vue.js &amp; ☁️ AWS.
-        </p>
       </div>
     </div>
   </footer>
 </template>
 
-<script setup>
-/**
- * Footer.vue — Pie de página del portfolio.
- * Muestra el logo, links a redes sociales y el copyright con año dinámico.
- */
-
-// Obtiene el año actual de forma dinámica para el copyright
-const currentYear = new Date().getFullYear()
-</script>

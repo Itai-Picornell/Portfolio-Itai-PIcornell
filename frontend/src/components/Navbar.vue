@@ -30,7 +30,7 @@
           class="w-8 h-8 rounded-lg object-cover
                  group-hover:scale-110 transition-transform duration-300"
         />
-        <span class="font-bold text-gray-900 text-lg hidden sm:block">
+        <span class="font-bold text-gray-900 text-lg">
           Itai <span class="text-gradient">Picornell</span>
         </span>
       </a>

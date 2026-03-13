@@ -53,9 +53,9 @@
               <!-- Badge de estado "En proceso" -->
               <span
                 v-if="cert.status === 'pending'"
-                class="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+                class="ml-auto flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full
                        bg-amber-700/15 text-amber-600 text-xs font-semibold tracking-wide
-                       border border-amber-700/20"
+                       border border-amber-700/20 whitespace-nowrap"
               >
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
                 In Progress
