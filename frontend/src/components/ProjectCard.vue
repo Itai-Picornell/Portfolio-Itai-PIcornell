@@ -7,13 +7,13 @@
     class="card group flex flex-col overflow-hidden h-full"
     :aria-label="`Proyecto: ${project.title}`"
   >
-    <!-- Imagen del proyecto con overlay en hover -->
-    <div class="relative overflow-hidden aspect-video">
+    <!-- Diagrama del proyecto con overlay en hover -->
+    <div class="relative overflow-hidden bg-white p-4" style="min-height: 280px;">
       <img
         :src="project.image"
-        :alt="`Captura de pantalla de ${project.title}`"
-        class="w-full h-full object-cover transition-transform duration-500
-               group-hover:scale-110"
+        :alt="`Diagrama de arquitectura de ${project.title}`"
+        class="w-full h-full object-contain transition-transform duration-500
+               group-hover:scale-105"
         loading="lazy"
       />
       <!-- Overlay oscuro con links de acción -->
