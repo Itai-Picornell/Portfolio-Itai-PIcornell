@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import { fileURLToPath, URL } from 'node:url'
 
 // Configuración principal de Vite para el proyecto
@@ -7,6 +8,8 @@ export default defineConfig({
   plugins: [
     // Plugin oficial de Vue para Vite (soporte de SFC .vue)
     vue(),
+    // Inyecta el CSS en el main JS para evitar el bloqueo del renderizado (Lighthouse/PageSpeed)
+    cssInjectedByJsPlugin(),
   ],
   resolve: {
     alias: {

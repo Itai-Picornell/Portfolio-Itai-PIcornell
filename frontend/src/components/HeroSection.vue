@@ -18,7 +18,7 @@
       <!-- Orbe de gradiente inferior derecho -->
       <div
         class="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full
-               bg-gray-100/60 blur-3xl animate-float animate-delay-300"
+               bg-gray-100/60 blur-3xl animate-float"
       />
       <!-- Grid de puntos decorativos -->
       <div
@@ -34,7 +34,7 @@
       <!-- Nombre principal con gradiente -->
       <h1
         class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900
-               leading-none mb-6 tracking-tight animate-fade-in-up animate-delay-100"
+               leading-none mb-6 tracking-tight"
       >
         Hi, I'm
         <br />
@@ -45,15 +45,14 @@
       <!-- Descripción breve -->
       <p
         class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12
-               leading-relaxed animate-fade-in-up animate-delay-300"
+               leading-relaxed"
       >
         Final Year Student in Multi-platform Application Development. Building a strong foundation in software creation, with a deep passion and focus on Cloud Infrastructure and Cybersecurity.
       </p>
 
       <!-- Botones de acción -->
       <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-4
-               animate-fade-in-up animate-delay-400"
+        class="flex flex-col sm:flex-row items-center justify-center gap-4"
       >
         <button class="btn-primary" @click="scrollToProjects">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,8 +66,7 @@
 
       <!-- Links a redes sociales, centrados debajo de los botones -->
       <div
-        class="flex flex-wrap items-center justify-center gap-3 mt-6
-               animate-fade-in-up animate-delay-500"
+        class="flex flex-wrap items-center justify-center gap-3 mt-6"
       >
         <a
           href="https://github.com/Itai-Picornell"
