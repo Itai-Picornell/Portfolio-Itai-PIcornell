@@ -12,6 +12,8 @@
       <img
         :src="project.image"
         :alt="`Diagrama de arquitectura de ${project.title}`"
+        :width="project.imageWidth"
+        :height="project.imageHeight"
         class="max-w-full max-h-full object-contain transition-transform duration-500
                group-hover:scale-105"
         loading="lazy"

@@ -41,7 +41,7 @@
               <!-- Badge de periodo -->
               <span
                 class="self-start inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
-                       bg-gray-100 text-gray-500 border border-gray-200 whitespace-nowrap"
+                       bg-gray-100 text-gray-700 border border-gray-200 whitespace-nowrap"
               >
                 {{ job.period }}
               </span>
@@ -85,7 +85,7 @@
               <!-- Badge de periodo -->
               <span
                 class="self-start inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
-                       bg-gray-100 text-gray-500 border border-gray-200 whitespace-nowrap"
+                       bg-gray-100 text-gray-700 border border-gray-200 whitespace-nowrap"
               >
                 {{ edu.period }}
               </span>

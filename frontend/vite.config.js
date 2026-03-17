@@ -21,5 +21,13 @@ export default defineConfig({
     sourcemap: false,
     // Umbral de advertencia para chunks grandes (en KB)
     chunkSizeWarningLimit: 1000,
+    // Configuración avanzada de Rollup para mejorar cache y evitar bloqueos LCP
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-vue': ['vue', 'vue-router'],
+        },
+      },
+    },
   },
 })

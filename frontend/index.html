@@ -25,9 +25,41 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload for critical font face CSS -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" />
+    
+    <!-- Asynchronous CSS loading (removes render blocking) -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet"
+        media="print"
+        onload="this.media='all'" />
+        
+    <!-- Fallback for users with JavaScript disabled -->
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet" />
+    </noscript>
+    <!-- SEO: Disable animations for bots (e.g. Googlebot) to avoid blank captures -->
+    <style>
+        .no-animations * {
+            animation: none !important;
+            transition: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
+    <script>
+        (function() {
+            var isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+            if (isBot) {
+                document.documentElement.classList.add('no-animations');
+                document.documentElement.setAttribute('data-bot', 'true');
+            }
+        })();
+    </script>
 </head>
 
 <body class="bg-dark text-gray-300 font-sans antialiased overflow-x-hidden selection:bg-primary/30 selection:text-white">
