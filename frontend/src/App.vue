@@ -6,7 +6,11 @@
 
     <!-- Vista principal renderizada por el router -->
     <div class="min-h-[85vh] flex flex-col justify-center">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
 
     <!-- Footer global -->
@@ -24,5 +28,19 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <style>
-/* Estilos globales (si los hubiera) */
+/* Transición suave entre páginas del router */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
 </style>
