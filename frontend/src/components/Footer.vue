@@ -28,7 +28,7 @@
             <!-- LinkedIn -->
             <li>
               <a
-                href="https://www.linkedin.com/in/itai-picornell-169929349/"
+                href="https://www.linkedin.com/in/itaipicornell"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="p-2.5 rounded-lg text-gray-400 hover:text-gray-900

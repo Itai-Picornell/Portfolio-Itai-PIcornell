@@ -80,7 +80,7 @@
           GitHub
         </a>
         <a
-          href="https://www.linkedin.com/in/itai-picornell-cort%C3%A9s-169929349/"
+          href="https://www.linkedin.com/in/itaipicornell"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-secondary text-sm py-2 px-4"
