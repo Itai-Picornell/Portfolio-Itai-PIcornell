@@ -1,14 +1,19 @@
 /**
- * Configuración del router de Vue.
- * Usa el modo 'history' para URLs limpias (sin hash).
- * IMPORTANTE: CloudFront debe redirigir 403/404 a /index.html para que funcione.
+ * Configuración de rutas de Vue Router.
+ * vite-ssg crea el router internamente, así que solo exportamos
+ * el array de rutas y el scrollBehavior.
+ *
+ * IMPORTANTE: CloudFront debe redirigir 403/404 a /index.html para SPA fallback.
  */
-import { createRouter, createWebHistory } from 'vue-router'
 
 // Importación lazy de la vista principal (mejora el tiempo de carga inicial)
 const HomeView = () => import('@/views/HomeView.vue')
 
-const routes = [
+/**
+ * Array de rutas de la aplicación.
+ * Exportado como named export para que ViteSSG lo consuma.
+ */
+export const routes = [
     {
         path: '/',
         name: 'home',
@@ -24,28 +29,19 @@ const routes = [
     },
 ]
 
-const router = createRouter({
-    // createWebHistory usa la History API del navegador (URLs sin #)
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes,
-    // Comportamiento del scroll al navegar entre rutas
-    scrollBehavior(to, _from, savedPosition) {
-        if (savedPosition) {
-            // Restaura la posición guardada al usar el botón "atrás"
-            return savedPosition
-        }
-        if (to.hash) {
-            // Navega suavemente a la sección con el id del hash
-            return { el: to.hash, behavior: 'smooth' }
-        }
-        // Por defecto, sube al inicio de la página
-        return { top: 0 }
-    },
-})
-
-// Actualiza el título de la pestaña del navegador en cada navegación
-router.afterEach((to) => {
-    document.title = to.meta.title || 'Itai Picornell | Portfolio'
-})
-
-export default router
+/**
+ * Configuración del scroll behavior.
+ * Exportado separadamente para que ViteSSG lo use al crear el router.
+ */
+export const scrollBehavior = (to, _from, savedPosition) => {
+    if (savedPosition) {
+        // Restaura la posición guardada al usar el botón "atrás"
+        return savedPosition
+    }
+    if (to.hash) {
+        // Navega suavemente a la sección con el id del hash
+        return { el: to.hash, behavior: 'smooth' }
+    }
+    // Por defecto, sube al inicio de la página
+    return { top: 0 }
+}

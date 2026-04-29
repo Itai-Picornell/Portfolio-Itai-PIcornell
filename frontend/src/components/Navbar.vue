@@ -167,6 +167,15 @@ const isMobileMenuOpen = ref(false)
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
 
+  // Si el usuario ha llegado al fondo de la página, activar la última sección
+  const atBottom =
+    (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50)
+
+  if (atBottom) {
+    activeSection.value = navLinks[navLinks.length - 1].id
+    return
+  }
+
   // Detecta qué sección está activa según la posición del scroll
   const sections = navLinks.map(link => document.getElementById(link.id))
   const scrollY  = window.scrollY + 100
