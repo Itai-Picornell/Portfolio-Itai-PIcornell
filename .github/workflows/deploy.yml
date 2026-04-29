@@ -29,12 +29,10 @@ jobs:
           # La caché se basa en el package-lock.json del frontend
           cache-dependency-path: frontend/package-lock.json
 
-      # ── Paso 3: Instala dependencias ──
-      # Se usa 'npm install' en lugar de 'npm ci' para evitar errores de 
-      # desincronización del lockfile con dependencias opcionales multi-plataforma
+      # ── Paso 3: Instala dependencias de forma reproducible ──
       - name: Install dependencies
         working-directory: frontend
-        run: npm install
+        run: npm ci
 
       # ── Paso 4: Genera el build de producción optimizado ──
       # Vite genera los assets en frontend/dist/
