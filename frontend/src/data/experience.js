@@ -20,7 +20,7 @@ export const workExperience = [
 ]
 
 /**
- * Lista de formaciones académicas en orden cronológico inverso.
+ * Lista de formaciones académicas en orden cronológico inverso
  */
 export const education = [
     {
