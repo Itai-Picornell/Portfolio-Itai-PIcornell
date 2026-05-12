@@ -21,13 +21,13 @@ export const projects = [
         id: 2,
         title: 'Gienco Web',
         description:
-            'Single Page Application (SPA) for Gienco Group featuring a serverless AWS architecture (Lambda, API Gateway, DynamoDB). Built with Vue 3 + Vite, hosted on S3 + CloudFront, with automated CI/CD deployments via GitHub Actions.',
-        image: '/projects/Diagrama_Gienco.svg',
+            'SPA for Gienco with a serverless AWS architecture (Lambda, API Gateway, DynamoDB). Includes a custom CMS to manage the visual components of the site and user orders, as well as a centralized log panel to monitor and diagnose any issues in real time. Deployed on S3 + CloudFront with automated CI/CD via GitHub Actions.',
+        image: '/projects/Diagrama_Gienco.png',
         imageWidth: 878,
-        imageHeight: 430,
-        technologies: ['Route 53', 'CloudFront', 'ACM', 'S3', 'Lambda', 'API Gateway', 'DynamoDB', 'Cognito', 'GitHub Actions'],
+        imageHeight: 619,
+        technologies: ['Route 53', 'CloudFront', 'ACM', 'S3', 'Lambda', 'API Gateway', 'DynamoDB', 'Cognito','CloudWatch', 'Amazon SES', 'CloudFlare', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Gienco-Web',
-        liveUrl: 'https://d33kjtzxmbw87t.cloudfront.net/',
+        liveUrl: 'https://giencoband.com',
         featured: true,
     },
 ]
