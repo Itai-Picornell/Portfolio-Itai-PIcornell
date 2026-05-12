@@ -22,7 +22,7 @@ export const projects = [
         title: 'Gienco Web',
         description:
             'SPA for Gienco with a serverless AWS architecture (Lambda, API Gateway, DynamoDB). Includes a custom CMS to manage the visual components of the site and user orders, as well as a centralized log panel to monitor and diagnose any issues in real time. Deployed on S3 + CloudFront with automated CI/CD via GitHub Actions.',
-        image: '/projects/Diagrama_Gienco.png',
+        image: '/projects/Gienco_Web.svg',
         imageWidth: 878,
         imageHeight: 619,
         technologies: ['Route 53', 'CloudFront', 'ACM', 'S3', 'Lambda', 'API Gateway', 'DynamoDB', 'Cognito','CloudWatch', 'Amazon SES', 'CloudFlare', 'GitHub Actions'],
