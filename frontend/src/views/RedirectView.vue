@@ -18,7 +18,7 @@ import { useHead } from '@unhead/vue'
  * vista se sirva. Este componente solo se ejecuta si ese redirect falla.
  */
 useHead({
-    title: 'Itai Picornell — Portfolio',
+    title: 'Itai Picornell — Cloud & Cybersecurity Portfolio',
     meta: [
         { name: 'robots', content: 'noindex, follow' },
         { 'http-equiv': 'refresh', content: '0; url=/en/' },
