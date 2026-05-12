@@ -20,10 +20,10 @@ export const workExperience = [
             es: 'Febrero 2026 - Junio 2026',
         },
         description: {
-            en: 'This internship provided me with an in-depth understanding of the professional Software Development Life Cycle (SDLC). My role involved creating and configuring Development and Staging environments (Laravel and Angular SSR) on Linux servers. I was responsible for deploying and adapting pre-existing enterprise architectures, managing the underlying infrastructure (PHP, Node.js, MariaDB/MySQL), and automating continuous delivery through Bitbucket CI/CD pipelines.',
-            es: 'Estas prácticas me han permitido comprender en profundidad el ciclo de vida del desarrollo de software (SDLC) en un entorno profesional. Mi rol incluyó la creación y configuración de entornos de Desarrollo y Staging (Laravel y Angular SSR) sobre servidores Linux. Me encargué de desplegar y adaptar arquitecturas empresariales ya existentes, gestionar la infraestructura subyacente (PHP, Node.js, MariaDB/MySQL) y automatizar el despliegue continuo mediante pipelines CI/CD de Bitbucket.',
+            en: 'This internship has given me an in-depth understanding of the professional Software Development Life Cycle (SDLC). My role centered on creating and configuring Development and Staging environments on Linux servers, deploying existing enterprise architectures, and managing the underlying infrastructure. I worked with CI/CD pipelines to automate continuous delivery, building a perspective oriented towards the architecture, operations, and security of production systems.',
+            es: 'Estas prácticas me han permitido conocer en profundidad el ciclo de vida del desarrollo de software (SDLC) en un entorno profesional. Mi rol se centró en la creación y configuración de entornos de Desarrollo y Staging sobre servidores Linux, el despliegue de arquitecturas empresariales ya existentes y la gestión de la infraestructura subyacente. Trabajé con pipelines de CI/CD para automatizar la entrega continua, consolidando una visión orientada a la arquitectura, la operación y la seguridad de los sistemas en producción.',
         },
-        technologies: ['PHP', 'Bitbucket', 'Laravel', 'Angular SSR', 'MariaDB/MySQL'],
+        technologies: ['Linux', 'Bitbucket CI/CD', 'SDLC', 'Infrastructure'],
     },
 ]
 
