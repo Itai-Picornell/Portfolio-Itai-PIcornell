@@ -15,20 +15,19 @@
   >
     <nav
       class="section-container flex items-center justify-between h-16 sm:h-18"
-      aria-label="Navegación principal"
+      :aria-label="$t('nav.aria_main')"
     >
-      <!-- Logo / Nombre del desarrollador -->
+      <!-- Logo / nombre -->
       <a
         href="#hero"
         class="flex items-center gap-2 group"
         @click.prevent="scrollToSection('hero')"
-        aria-label="Ir al inicio"
+        :aria-label="$t('nav.aria_home')"
       >
         <img
           src="/Perfil.jpg"
           alt="Itai Picornell"
-          class="w-8 h-8 rounded-lg object-cover
-                 group-hover:scale-110 transition-transform duration-300"
+          class="w-8 h-8 rounded-lg object-cover group-hover:scale-110 transition-transform duration-300"
         />
         <span class="font-bold text-gray-900 text-lg">
           Itai <span class="text-gradient">Picornell</span>
@@ -48,55 +47,44 @@
             ]"
             @click.prevent="scrollToSection(link.id)"
           >
-            {{ link.label }}
+            {{ $t(link.labelKey) }}
           </a>
         </li>
       </ul>
 
-      <!-- Botón CTA — escritorio -->
-      <a
-        href="mailto:itai@example.com"
-        class="hidden md:flex btn-primary text-sm py-2 px-4"
-      >
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-        Contact
-      </a>
+      <!-- Selector de idioma + CTA — escritorio -->
+      <div class="hidden md:flex items-center gap-3">
+        <LanguageSwitcher />
+        <a
+          href="mailto:itaipicornell@gmail.com"
+          class="btn-primary text-sm py-2 px-4"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            />
+          </svg>
+          {{ $t('nav.contact') }}
+        </a>
+      </div>
 
       <!-- Botón hamburguesa — móvil -->
-      <button
-        class="md:hidden p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100
-               transition-colors duration-200"
-        :aria-expanded="isMobileMenuOpen"
-        aria-controls="mobile-menu"
-        aria-label="Abrir menú"
-        @click="toggleMobileMenu"
-      >
-        <!-- Icono animado hamburguesa / X -->
-        <div class="w-5 h-4 flex flex-col justify-between">
-          <span
-            :class="[
-              'block h-0.5 bg-current rounded transition-all duration-300',
-              isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : '',
-            ]"
-          />
-          <span
-            :class="[
-              'block h-0.5 bg-current rounded transition-all duration-300',
-              isMobileMenuOpen ? 'opacity-0 scale-x-0' : '',
-            ]"
-          />
-          <span
-            :class="[
-              'block h-0.5 bg-current rounded transition-all duration-300',
-              isMobileMenuOpen ? '-rotate-45 -translate-y-2.5' : '',
-            ]"
-          />
-        </div>
-      </button>
+      <div class="md:hidden flex items-center gap-2">
+        <LanguageSwitcher />
+        <button
+          class="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors duration-200"
+          :aria-expanded="isMobileMenuOpen"
+          aria-controls="mobile-menu"
+          :aria-label="$t('nav.aria_open_menu')"
+          @click="toggleMobileMenu"
+        >
+          <div class="w-5 h-4 flex flex-col justify-between">
+            <span :class="['block h-0.5 bg-current rounded transition-all duration-300', isMobileMenuOpen ? 'rotate-45 translate-y-1.5' : '']" />
+            <span :class="['block h-0.5 bg-current rounded transition-all duration-300', isMobileMenuOpen ? 'opacity-0 scale-x-0' : '']" />
+            <span :class="['block h-0.5 bg-current rounded transition-all duration-300', isMobileMenuOpen ? '-rotate-45 -translate-y-2.5' : '']" />
+          </div>
+        </button>
+      </div>
     </nav>
 
     <!-- Menú móvil desplegable -->
@@ -118,16 +106,15 @@
               ]"
               @click.prevent="handleMobileLinkClick(link.id)"
             >
-              {{ link.label }}
+              {{ $t(link.labelKey) }}
             </a>
           </li>
           <li class="pt-2 border-t border-gray-200">
             <a
-              href="mailto:itai@example.com"
-              class="block px-4 py-3 text-sm font-medium text-gray-700
-                     hover:text-gray-900 transition-colors duration-200"
+              href="mailto:itaipicornell@gmail.com"
+              class="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
             >
-            Contact
+              {{ $t('nav.contact') }}
             </a>
           </li>
         </ul>
@@ -138,114 +125,87 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import LanguageSwitcher from '@/components/LanguageSwitcher.vue'
 
-// Referencia al elemento <header> para detectar clicks fuera del menú
 const headerRef = ref(null)
 
 /**
- * Links de navegación del menú.
- * El 'id' debe coincidir con el id del elemento HTML de cada sección.
+ * Links de navegación. 'labelKey' apunta a una clave de los archivos i18n.
  */
 const navLinks = [
-  { id: 'hero',             label: 'Home'           },
-  { id: 'experience',       label: 'Experience'     },
-  { id: 'projects',         label: 'Projects'       },
-  { id: 'certifications',   label: 'Certifications' },
+    { id: 'hero',           labelKey: 'nav.home'           },
+    { id: 'experience',     labelKey: 'nav.experience'     },
+    { id: 'projects',       labelKey: 'nav.projects'       },
+    { id: 'certifications', labelKey: 'nav.certifications' },
 ]
 
-// Estado reactivo: controla si el navbar tiene fondo sólido
 const isScrolled       = ref(false)
-// Estado reactivo: sección actualmente visible en el viewport
 const activeSection    = ref('hero')
-// Estado reactivo: controla si el menú móvil está abierto
 const isMobileMenuOpen = ref(false)
 
-/**
- * Detecta si el usuario ha hecho scroll para cambiar el estilo del navbar.
- * Se activa cuando el scroll supera los 50px.
- */
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50
+    isScrolled.value = window.scrollY > 50
 
-  // Si el usuario ha llegado al fondo de la página, activar la última sección
-  const atBottom =
-    (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50)
+    const atBottom =
+        (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 50)
 
-  if (atBottom) {
-    activeSection.value = navLinks[navLinks.length - 1].id
-    return
-  }
-
-  // Detecta qué sección está activa según la posición del scroll
-  const sections = navLinks.map(link => document.getElementById(link.id))
-  const scrollY  = window.scrollY + 100
-
-  for (let i = sections.length - 1; i >= 0; i--) {
-    const section = sections[i]
-    if (section && section.offsetTop <= scrollY) {
-      activeSection.value = navLinks[i].id
-      break
+    if (atBottom) {
+        activeSection.value = navLinks[navLinks.length - 1].id
+        return
     }
-  }
+
+    const sections = navLinks.map(link => document.getElementById(link.id))
+    const scrollY  = window.scrollY + 100
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i]
+        if (section && section.offsetTop <= scrollY) {
+            activeSection.value = navLinks[i].id
+            break
+        }
+    }
 }
 
-/**
- * Hace scroll suave hasta la sección con el id especificado.
- * @param {string} sectionId - El id del elemento HTML destino
- */
 const scrollToSection = (sectionId) => {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' })
-  }
+    const element = document.getElementById(sectionId)
+    if (element) element.scrollIntoView({ behavior: 'smooth' })
 }
 
-/**
- * Alterna la visibilidad del menú móvil.
- */
 const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
+    isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
 
-/**
- * Cierra el menú móvil al hacer click fuera del header.
- */
 const handleClickOutside = (event) => {
-  if (isMobileMenuOpen.value && headerRef.value && !headerRef.value.contains(event.target)) {
-    isMobileMenuOpen.value = false
-  }
+    if (isMobileMenuOpen.value && headerRef.value && !headerRef.value.contains(event.target)) {
+        isMobileMenuOpen.value = false
+    }
 }
 
-/**
- * Cierra el menú móvil y navega a la sección seleccionada.
- * @param {string} sectionId - El id de la sección destino
- */
 const handleMobileLinkClick = (sectionId) => {
-  isMobileMenuOpen.value = false
-  scrollToSection(sectionId)
+    isMobileMenuOpen.value = false
+    scrollToSection(sectionId)
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true })
-  document.addEventListener('click', handleClickOutside, true)
-  handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    document.addEventListener('click', handleClickOutside, true)
+    handleScroll()
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-  document.removeEventListener('click', handleClickOutside, true)
+    window.removeEventListener('scroll', handleScroll)
+    document.removeEventListener('click', handleClickOutside, true)
 })
 </script>
 
 <style scoped>
-/* Animación de entrada/salida del menú móvil */
 .mobile-menu-enter-active,
 .mobile-menu-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .mobile-menu-enter-from,
 .mobile-menu-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
+    opacity: 0;
+    transform: translateY(-8px);
 }
 </style>

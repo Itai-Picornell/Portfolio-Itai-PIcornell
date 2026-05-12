@@ -1,0 +1,62 @@
+{
+  "head": {
+    "title": "Itai Picornell — Arquitectura Cloud y Ciberseguridad",
+    "description": "Portafolio de Itai Picornell. Apasionado de la arquitectura en la nube y la ciberseguridad. Certificado en CompTIA Security+, actualmente preparando el AWS Solutions Architect Associate."
+  },
+  "nav": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "certifications": "Certificaciones",
+    "contact": "Contacto",
+    "aria_main": "Navegación principal",
+    "aria_home": "Ir al inicio",
+    "aria_open_menu": "Abrir menú"
+  },
+  "language_switcher": {
+    "aria": "Cambiar idioma",
+    "en": "EN",
+    "es": "ES"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "bio": "Apasionado de la Arquitectura en la Nube y la Ciberseguridad. Certificado en CompTIA Security+, actualmente preparando el AWS Solutions Architect Associate.",
+    "cta": "Ver mis proyectos",
+    "aria_section": "Presentación principal"
+  },
+  "experience_section": {
+    "section_title": "Educación y Experiencia",
+    "professional_subtitle": "Experiencia Profesional",
+    "education_subtitle": "Educación",
+    "aria_section": "Educación y Experiencia"
+  },
+  "projects_section": {
+    "section_title": "Proyectos",
+    "click_expand": "Haz click para ampliar",
+    "btn_code": "Código",
+    "btn_view": "Ver proyecto",
+    "diagram_alt": "Diagrama de arquitectura de {title}",
+    "aria_card": "Proyecto: {title}",
+    "aria_github": "Ver código de {title} en GitHub",
+    "aria_live": "Ver demo en vivo de {title}",
+    "aria_expand": "Ver diagrama completo de {title}",
+    "lightbox_subtitle": "Diagrama de Arquitectura",
+    "lightbox_close": "Cerrar",
+    "aria_section": "Proyectos"
+  },
+  "certifications_section": {
+    "section_title": "Certificaciones",
+    "in_progress": "En proceso",
+    "verification_code": "Código de verificación",
+    "view_credential": "Ver credencial",
+    "aria_badge": "Insignia de {name}",
+    "aria_verify": "Verificar credencial: {name}",
+    "aria_section": "Certificaciones"
+  },
+  "footer": {
+    "aria_github": "Perfil de GitHub",
+    "aria_linkedin": "Perfil de LinkedIn",
+    "aria_email": "Enviar email",
+    "aria_social": "Redes sociales"
+  }
+}

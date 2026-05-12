@@ -1,0 +1,62 @@
+{
+  "head": {
+    "title": "Itai Picornell — Cloud Architecture & Cybersecurity",
+    "description": "Portfolio of Itai Picornell. Passionate about cloud architecture and cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate."
+  },
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "aria_main": "Main navigation",
+    "aria_home": "Go to home",
+    "aria_open_menu": "Open menu"
+  },
+  "language_switcher": {
+    "aria": "Switch language",
+    "en": "EN",
+    "es": "ES"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "bio": "Passionate about Cloud Architecture and Cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate.",
+    "cta": "View my projects",
+    "aria_section": "Main presentation"
+  },
+  "experience_section": {
+    "section_title": "Education & Experience",
+    "professional_subtitle": "Professional Experience",
+    "education_subtitle": "Education",
+    "aria_section": "Education and Experience"
+  },
+  "projects_section": {
+    "section_title": "Projects",
+    "click_expand": "Click to expand",
+    "btn_code": "Code",
+    "btn_view": "View project",
+    "diagram_alt": "Architecture diagram of {title}",
+    "aria_card": "Project: {title}",
+    "aria_github": "See {title} code on GitHub",
+    "aria_live": "View live demo of {title}",
+    "aria_expand": "View full diagram of {title}",
+    "lightbox_subtitle": "Architecture Diagram",
+    "lightbox_close": "Close",
+    "aria_section": "Projects"
+  },
+  "certifications_section": {
+    "section_title": "Certifications",
+    "in_progress": "In Progress",
+    "verification_code": "Verification code",
+    "view_credential": "View credential",
+    "aria_badge": "Badge of {name}",
+    "aria_verify": "Verify credential: {name}",
+    "aria_section": "Certifications"
+  },
+  "footer": {
+    "aria_github": "GitHub profile",
+    "aria_linkedin": "LinkedIn profile",
+    "aria_email": "Send email",
+    "aria_social": "Social networks"
+  }
+}

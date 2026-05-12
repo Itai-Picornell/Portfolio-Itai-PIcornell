@@ -1,73 +1,52 @@
 <template>
-  <!--
-    Sección Hero: primera pantalla del portfolio.
-    Ocupa el 100% del viewport con animaciones de entrada.
-  -->
+  <!-- Hero: primera pantalla del portfolio, 100% del viewport con animaciones. -->
   <section
     id="hero"
     class="relative min-h-screen flex items-center justify-center overflow-hidden"
-    aria-label="Presentación principal"
+    :aria-label="$t('hero.aria_section')"
   >
-    <!-- Fondo con partículas decorativas -->
+    <!-- Fondo decorativo -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <!-- Orbe de gradiente superior izquierdo -->
-      <div
-        class="absolute top-1/4 -left-32 w-96 h-96 rounded-full
-               bg-gray-200/50 blur-3xl animate-float"
-      />
-      <!-- Orbe de gradiente inferior derecho -->
-      <div
-        class="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full
-               bg-gray-100/60 blur-3xl animate-float"
-      />
-      <!-- Grid de puntos decorativos -->
+      <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-gray-200/50 blur-3xl animate-float" />
+      <div class="absolute bottom-1/4 -right-32 w-80 h-80 rounded-full bg-gray-100/60 blur-3xl animate-float" />
       <div
         class="absolute inset-0 opacity-[0.04]"
-        style="background-image: radial-gradient(circle, #cccccc 1px, transparent 1px);
-               background-size: 40px 40px;"
+        style="background-image: radial-gradient(circle, #cccccc 1px, transparent 1px); background-size: 40px 40px;"
       />
     </div>
 
-    <!-- Contenido principal del hero -->
     <div class="section-container relative z-10 text-center py-32">
 
-      <!-- Nombre principal con gradiente -->
+      <!-- Nombre principal -->
       <h1
-        class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900
-               leading-none mb-6 tracking-tight"
+        class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-none mb-6 tracking-tight"
       >
-        Hi, I'm
+        {{ $t('hero.greeting') }}
         <br />
         <span class="text-gradient">Itai Picornell</span>
       </h1>
 
-
-      <!-- Descripción breve -->
+      <!-- Bio breve -->
       <p
-        class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12
-               leading-relaxed"
+        class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
       >
-        Passionate about Cloud Architecture and Cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate.
+        {{ $t('hero.bio') }}
       </p>
 
-      <!-- Botones de acción -->
-      <div
-        class="flex flex-col sm:flex-row items-center justify-center gap-4"
-      >
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <button class="btn-primary" @click="scrollToProjects">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M19 11H5m14 0l-7 7m7-7l-7-7"
             />
           </svg>
-          View my projects
+          {{ $t('hero.cta') }}
         </button>
       </div>
 
-      <!-- Links a redes sociales, centrados debajo de los botones -->
-      <div
-        class="flex flex-wrap items-center justify-center gap-3 mt-6"
-      >
+      <!-- Redes sociales -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
         <a
           href="https://github.com/Itai-Picornell"
           target="_blank"
@@ -98,16 +77,10 @@
 <script setup>
 /**
  * HeroSection.vue — Sección principal del portfolio.
- * Muestra el nombre, descripción y botones de acción.
- */
-
-/**
- * Hace scroll suave hasta la sección de proyectos.
+ * Nombre, bio breve y CTAs. Las cadenas vienen de vue-i18n.
  */
 const scrollToProjects = () => {
-  const section = document.getElementById('projects')
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' })
-  }
+    const section = document.getElementById('projects')
+    if (section) section.scrollIntoView({ behavior: 'smooth' })
 }
 </script>

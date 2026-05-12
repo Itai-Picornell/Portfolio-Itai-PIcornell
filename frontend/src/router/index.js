@@ -1,47 +1,60 @@
 /**
  * Configuración de rutas de Vue Router.
- * vite-ssg crea el router internamente, así que solo exportamos
- * el array de rutas y el scrollBehavior.
  *
- * IMPORTANTE: CloudFront debe redirigir 403/404 a /index.html para SPA fallback.
+ * Arquitectura i18n:
+ *   - '/'    → RedirectView (fallback si CloudFront Function no actúa).
+ *               En producción, CloudFront Functions devuelve 301 a /en/ en el edge.
+ *   - '/en'  → HomeView con locale='en' (URL canónica)
+ *   - '/es'  → HomeView con locale='es'
+ *
+ * vite-ssg pre-renderiza las tres rutas como HTML estático en build time,
+ * lo que da a cada idioma su propio HTML completo para crawlers y buscadores.
  */
 
-// Importación lazy de la vista principal (mejora el tiempo de carga inicial)
+// Importación lazy (mejora el tiempo de carga inicial)
 const HomeView = () => import('@/views/HomeView.vue')
+const RedirectView = () => import('@/views/RedirectView.vue')
 
 /**
- * Array de rutas de la aplicación.
- * Exportado como named export para que ViteSSG lo consuma.
+ * Array de rutas. vite-ssg lo consume directamente.
  */
 export const routes = [
     {
         path: '/',
-        name: 'home',
-        component: HomeView,
+        name: 'redirect',
+        component: RedirectView,
         meta: {
-            title: 'Itai Picornell | Portfolio',
+            locale: 'en',
         },
     },
-    // Ruta comodín: redirige cualquier URL no encontrada al home
+    {
+        path: '/en',
+        name: 'home-en',
+        component: HomeView,
+        meta: {
+            locale: 'en',
+        },
+    },
+    {
+        path: '/es',
+        name: 'home-es',
+        component: HomeView,
+        meta: {
+            locale: 'es',
+        },
+    },
+    // Cualquier URL no encontrada redirige a la versión inglesa por defecto
     {
         path: '/:pathMatch(.*)*',
-        redirect: '/',
+        redirect: '/en',
     },
 ]
 
 /**
- * Configuración del scroll behavior.
- * Exportado separadamente para que ViteSSG lo use al crear el router.
+ * Scroll behavior compartido por todas las rutas.
  */
 export const scrollBehavior = (to, _from, savedPosition) => {
-    if (savedPosition) {
-        // Restaura la posición guardada al usar el botón "atrás"
-        return savedPosition
-    }
-    if (to.hash) {
-        // Navega suavemente a la sección con el id del hash
-        return { el: to.hash, behavior: 'smooth' }
-    }
-    // Por defecto, sube al inicio de la página
+    if (savedPosition) return savedPosition
+    if (to.hash) return { el: to.hash, behavior: 'smooth' }
     return { top: 0 }
 }

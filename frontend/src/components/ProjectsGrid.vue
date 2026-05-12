@@ -1,24 +1,19 @@
 <template>
-  <!--
-    Sección de proyectos: muestra un grid filtrable de tarjetas de proyecto.
-  -->
+  <!-- Sección de proyectos: grid de tarjetas de proyecto. -->
   <section
     id="projects"
     class="py-16 sm:py-20 relative overflow-hidden"
-    aria-label="Proyectos"
+    :aria-label="$t('projects_section.aria_section')"
   >
-    <!-- Decoración de fondo -->
     <div class="absolute bottom-0 left-0 w-72 h-72 bg-gray-100/50 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
     <div class="section-container">
 
-      <!-- Encabezado de sección -->
       <div class="mb-8">
         <div class="gradient-line" />
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title">{{ $t('projects_section.section_title') }}</h2>
       </div>
 
-      <!-- Grid de tarjetas de proyectos -->
       <div class="grid sm:grid-cols-2 gap-6">
         <ProjectCard
           v-for="project in projects"
@@ -26,7 +21,6 @@
           :project="project"
         />
       </div>
-
 
     </div>
   </section>
