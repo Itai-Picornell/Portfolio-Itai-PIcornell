@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://portfolio.itaipicornell.com/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://portfolio.itaipicornell.com/Perfil.jpg</image:loc>
+      <image:title>Itai Picornell</image:title>
+      <image:caption>Cloud Architecture &amp; Cybersecurity</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio.itaipicornell.com/comptia-security-plus.webp</image:loc>
+      <image:title>CompTIA Security+ Certification</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio.itaipicornell.com/projects/Diagrama_Portfolio.svg</image:loc>
+      <image:title>Portfolio — Serverless Architecture on AWS</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portfolio.itaipicornell.com/projects/Gienco_Web.svg</image:loc>
+      <image:title>Gienco Web — Serverless Architecture on AWS</image:title>
+    </image:image>
   </url>
 </urlset>

@@ -47,7 +47,7 @@
         class="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto mb-12
                leading-relaxed"
       >
-        Final Year Student in Multi-platform Application Development. Building a strong foundation in software creation, with a deep passion and focus on Cloud Infrastructure and Cybersecurity.
+        Passionate about Cloud Architecture and Cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate.
       </p>
 
       <!-- Botones de acción -->
