@@ -20,7 +20,6 @@ export const projects = [
         technologies: ['Route 53', 'CloudFront', 'ACM', 'S3', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Portfolio-Itai-PIcornell',
         liveUrl: 'https://portfolio.itaipicornell.com',
-        featured: true,
     },
     {
         id: 2,
@@ -38,6 +37,5 @@ export const projects = [
         technologies: ['Route 53', 'CloudFront', 'ACM', 'S3', 'Lambda', 'API Gateway', 'DynamoDB', 'Cognito', 'CloudWatch', 'Amazon SES', 'CloudFlare', 'GitHub Actions'],
         githubUrl: 'https://github.com/Itai-Picornell/Gienco-Web',
         liveUrl: 'https://giencoband.com',
-        featured: true,
     },
 ]

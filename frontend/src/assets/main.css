@@ -64,10 +64,6 @@
         @apply text-3xl sm:text-4xl font-bold text-gray-900 mb-4 tracking-tight;
     }
 
-    .section-subtitle {
-        @apply text-gray-500 text-lg max-w-2xl;
-    }
-
     .gradient-line {
         @apply h-1 w-16 rounded-full bg-gray-900 mb-6;
     }
