@@ -32,7 +32,7 @@ jobs:
     steps:
       # ── Paso 1: Descarga el código del repositorio ──
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # ── Paso 2: Configura Node.js 24 con caché de npm ──
       - name: Setup Node.js 24
