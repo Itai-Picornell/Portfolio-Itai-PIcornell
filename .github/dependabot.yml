@@ -1,0 +1,32 @@
+# Dependabot — actualizaciones automáticas de dependencias.
+#
+# Por qué:
+#   - npm: detecta vulnerabilidades en las dependencias del frontend y abre PRs.
+#   - github-actions: mantiene actualizadas las acciones del workflow de deploy
+#     (actions/checkout, aws-actions/configure-aws-credentials, etc.) para que
+#     no se queden ancladas a versiones con CVEs conocidas.
+version: 2
+updates:
+  # ── Dependencias del frontend (Vue + Vite) ──
+  - package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    labels:
+      - "dependencies"
+      - "frontend"
+
+  # ── Acciones del workflow de CI/CD ──
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(ci)"
+    labels:
+      - "dependencies"
+      - "ci"

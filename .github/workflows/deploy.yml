@@ -1,7 +1,7 @@
 name: Deploy Portfolio to AWS S3 + CloudFront
 
 # Disparador: se ejecuta en cada push a la rama 'main'
-# Solo si hay cambios dentro de la carpeta 'frontend/'
+# Solo si hay cambios dentro de la carpeta 'frontend/' o en los workflows
 on:
   push:
     branches:
@@ -9,6 +9,20 @@ on:
     paths:
       - "frontend/**"
       - ".github/**"
+
+# Permisos mínimos a nivel de workflow (principio de least-privilege).
+#   - id-token: write → imprescindible para autenticarse con AWS vía OIDC
+#   - contents: read  → para que el checkout pueda clonar el código
+permissions:
+  id-token: write
+  contents: read
+
+# Evita que dos deploys solapados se pisen entre sí.
+# Si llega un push mientras hay otro deploy en curso, se encola (no se cancela)
+# para no dejar S3 en un estado inconsistente.
+concurrency:
+  group: deploy-portfolio
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -26,7 +40,6 @@ jobs:
         with:
           node-version: "24"
           cache: "npm"
-          # La caché se basa en el package-lock.json del frontend
           cache-dependency-path: frontend/package-lock.json
 
       # ── Paso 3: Instala dependencias de forma reproducible ──
@@ -35,39 +48,45 @@ jobs:
         run: npm ci
 
       # ── Paso 4: Genera el build de producción optimizado ──
-      # Vite genera los assets en frontend/dist/
+      # vite-ssg pre-renderiza /, /en y /es en dist/
       - name: Build for production
         working-directory: frontend
         run: npm run build
 
-      # ── Paso 5: Configura las credenciales de AWS ──
-      # Los valores vienen de los Secrets del repositorio en GitHub
-      - name: Configure AWS credentials
+      # ── Paso 5: Autenticación contra AWS vía OIDC ──
+      # No usa credenciales de larga duración. GitHub intercambia su JWT
+      # firmado por credenciales temporales de STS (válidas ~1h).
+      - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
       # ── Paso 6: Sincroniza los assets estáticos con S3 ──
-      # Se usa --delete para eliminar archivos obsoletos del bucket
-      # Los assets con hash (JS/CSS) se cachean por 1 año (immutable)
+      # Se usa --delete para eliminar archivos obsoletos del bucket.
+      # Los assets con hash (JS/CSS) se cachean por 1 año (immutable).
+      # Excluimos los index.html porque tienen su propia política de caché.
       - name: Deploy static assets to S3
         run: |
           aws s3 sync frontend/dist/ s3://${{ secrets.S3_BUCKET_NAME }} \
             --delete \
             --cache-control "public, max-age=31536000, immutable" \
-            --exclude "index.html"
+            --exclude "index.html" \
+            --exclude "en/index.html" \
+            --exclude "es/index.html"
 
-      # ── Paso 7: Sube index.html sin caché larga ──
-      # index.html NUNCA debe cachearse para que los cambios sean inmediatos
-      - name: Upload index.html without cache
+      # ── Paso 7: Sube los HTML sin caché larga ──
+      # Los index.html (uno por idioma) NUNCA deben cachearse para que los
+      # cambios sean inmediatos en cuanto CloudFront se invalida.
+      - name: Upload index.html files without cache
         run: |
-          aws s3 cp frontend/dist/index.html s3://${{ secrets.S3_BUCKET_NAME }}/index.html \
-            --cache-control "no-cache, no-store, must-revalidate" \
-            --content-type "text/html; charset=utf-8"
+          for path in "index.html" "en/index.html" "es/index.html"; do
+            aws s3 cp "frontend/dist/${path}" "s3://${{ secrets.S3_BUCKET_NAME }}/${path}" \
+              --cache-control "no-cache, no-store, must-revalidate" \
+              --content-type "text/html; charset=utf-8"
+          done
 
       # ── Paso 8: Invalida la caché de CloudFront ──
-      # Fuerza a CloudFront a servir los nuevos archivos en todos los edge locations
+      # Fuerza a CloudFront a servir los nuevos archivos en todos los edge locations.
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
