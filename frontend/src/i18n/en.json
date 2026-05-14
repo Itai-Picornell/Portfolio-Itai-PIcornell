@@ -1,7 +1,8 @@
 {
   "head": {
     "title": "Itai Picornell — Cloud & Cybersecurity Portfolio",
-    "description": "Portfolio of Itai Picornell. Passionate about cloud architecture and cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate."
+    "description": "Portfolio of Itai Picornell. Passionate about cloud architecture and cybersecurity. CompTIA Security+ certified, currently preparing for the AWS Solutions Architect Associate.",
+    "image_alt": "Photo of Itai Picornell"
   },
   "nav": {
     "home": "Home",

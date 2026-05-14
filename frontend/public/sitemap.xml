@@ -6,7 +6,7 @@
   <!-- Versión inglesa (canónica) -->
   <url>
     <loc>https://portfolio.itaipicornell.com/en/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.itaipicornell.com/en/" />
@@ -34,7 +34,7 @@
   <!-- Versión española -->
   <url>
     <loc>https://portfolio.itaipicornell.com/es/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://portfolio.itaipicornell.com/en/" />
