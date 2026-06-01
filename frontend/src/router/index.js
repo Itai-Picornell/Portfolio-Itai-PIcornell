@@ -53,7 +53,17 @@ export const routes = [
 /**
  * Scroll behavior compartido por todas las rutas.
  */
-export const scrollBehavior = (to, _from, savedPosition) => {
+export const scrollBehavior = (to, from, savedPosition) => {
+    // Language switch (home-en <-> home-es): same page, just another locale —
+    // keep the current scroll position instead of jumping to the top.
+    if (
+        from &&
+        to.name?.startsWith('home-') &&
+        from.name?.startsWith('home-') &&
+        to.name !== from.name
+    ) {
+        return false
+    }
     if (savedPosition) return savedPosition
     if (to.hash) return { el: to.hash, behavior: 'smooth' }
     return { top: 0 }

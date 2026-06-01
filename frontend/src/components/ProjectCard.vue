@@ -24,7 +24,7 @@
                transition-opacity duration-300 flex items-center justify-center gap-4"
       >
         <button
-          class="p-3 rounded-full glass text-white hover:text-gray-200 hover:scale-110 transition-all duration-200"
+          class="p-3 rounded-full glass text-gray-900 hover:text-gray-600 hover:scale-110 transition-all duration-200"
           :aria-label="$t('projects_section.aria_expand', { title: project.title[locale] })"
           @click.stop="openLightbox"
         >
@@ -40,7 +40,7 @@
           :href="project.githubUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-3 rounded-full glass text-white hover:text-gray-200 hover:scale-110 transition-all duration-200"
+          class="p-3 rounded-full glass text-gray-900 hover:text-gray-600 hover:scale-110 transition-all duration-200"
           :aria-label="$t('projects_section.aria_github', { title: project.title[locale] })"
           @click.stop
         >
@@ -54,7 +54,7 @@
           :href="project.liveUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="p-3 rounded-full glass text-white hover:text-gray-200 hover:scale-110 transition-all duration-200"
+          class="p-3 rounded-full glass text-gray-900 hover:text-gray-600 hover:scale-110 transition-all duration-200"
           :aria-label="$t('projects_section.aria_live', { title: project.title[locale] })"
           @click.stop
         >
