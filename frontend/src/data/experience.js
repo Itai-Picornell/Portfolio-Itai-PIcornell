@@ -43,8 +43,8 @@ export const education = [
             es: 'Septiembre 2026 - Junio 2027',
         },
         description: {
-            en: 'Final-year Honours top-up that builds on my Higher Education Diploma to complete the BSc (Hons) in Cyber Security. The programme deepens my expertise in network security, cryptography, ethical hacking and penetration testing, digital forensics, and security governance, culminating in an individual research project.',
-            es: 'Último curso de Honours (top-up) que amplía mi Grado Superior hasta completar el BSc (Hons) en Ciberseguridad. El programa profundiza en seguridad de redes, criptografía, hacking ético y pruebas de penetración, análisis forense digital y gobernanza de la seguridad, y culmina con un proyecto de investigación individual.',
+            en: 'Final-year Honours top-up that builds on my Higher Education Diploma to complete the BSc (Hons) in Cyber Security. Modules include Penetration Testing and Vulnerability Assessment, Cloud Computing Security and Compliance, Network Security Architecture and Operations, and The Internet of Things.',
+            es: 'Último curso de Honours (top-up) que amplía mi Grado Superior hasta completar el BSc (Hons) en Ciberseguridad. Los módulos incluyen Penetration Testing and Vulnerability Assessment, Cloud Computing Security and Compliance, Network Security Architecture and Operations, y The Internet of Things.',
         },
     },
     {
