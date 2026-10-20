@@ -14,24 +14,24 @@ import { useHead } from '@unhead/vue'
 
 /**
  * RedirectView.vue — Página servida en '/' como red de seguridad.
- * En producción, CloudFront Functions devuelve 301 a /en/ antes de que esta
+ * En producción, CloudFront Functions devuelve 301 a /en antes de que esta
  * vista se sirva. Este componente solo se ejecuta si ese redirect falla.
  */
 useHead({
     title: 'Itai Picornell — Cloud & Cybersecurity Portfolio',
     meta: [
         { name: 'robots', content: 'noindex, follow' },
-        { 'http-equiv': 'refresh', content: '0; url=/en/' },
+        { 'http-equiv': 'refresh', content: '0; url=/en' },
     ],
     link: [
-        { rel: 'canonical', href: 'https://portfolio.itaipicornell.com/en/' },
+        { rel: 'canonical', href: 'https://portfolio.itaipicornell.com/en' },
     ],
 })
 
 onMounted(() => {
     // Cliente: redirige inmediatamente
     if (typeof window !== 'undefined') {
-        window.location.replace('/en/')
+        window.location.replace('/en')
     }
 })
 </script>

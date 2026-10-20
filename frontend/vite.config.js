@@ -1,6 +1,37 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
+import { readFileSync } from 'node:fs'
+
+/**
+ * Ejecuta en `vite preview` la misma CloudFront Function que producción
+ * (infra/cloudfront/viewer-request.js): redirects 301 y reescrituras de
+ * /en → /en/index.html. Así las auditorías SEO locales ven lo mismo que Googlebot.
+ */
+function cloudfrontFunctionPreview() {
+    return {
+        name: 'cloudfront-function-preview',
+        configurePreviewServer(server) {
+            const source = readFileSync(
+                fileURLToPath(new URL('../infra/cloudfront/viewer-request.js', import.meta.url)),
+                'utf8',
+            )
+            const handler = new Function(`${source}; return handler`)()
+
+            server.middlewares.use((req, res, next) => {
+                const [uri, query] = req.url.split('?')
+                const result = handler({ request: { uri } })
+                if (result.statusCode) {
+                    res.statusCode = result.statusCode
+                    res.setHeader('Location', result.headers.location.value)
+                    return res.end()
+                }
+                req.url = result.uri + (query ? `?${query}` : '')
+                next()
+            })
+        },
+    }
+}
 
 /**
  * Configuración principal de Vite + vite-ssg.
@@ -12,6 +43,7 @@ export default defineConfig({
     plugins: [
         // Plugin oficial de Vue para Vite (soporte de SFC .vue)
         vue(),
+        cloudfrontFunctionPreview(),
     ],
     resolve: {
         alias: {

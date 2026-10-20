@@ -3,7 +3,7 @@
  *
  * Arquitectura i18n:
  *   - '/'    → RedirectView (fallback si CloudFront Function no actúa).
- *               En producción, CloudFront Functions devuelve 301 a /en/ en el edge.
+ *               En producción, CloudFront Functions devuelve 301 a /en en el edge.
  *   - '/en'  → HomeView con locale='en' (URL canónica)
  *   - '/es'  → HomeView con locale='es'
  *

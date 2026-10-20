@@ -42,7 +42,7 @@ const imageAlt = messages.head.image_alt
 const SITE_URL = 'https://portfolio.itaipicornell.com'
 const IMAGE_URL = `${SITE_URL}/Perfil.jpg`
 const SITE_NAME = 'Itai Picornell'
-const canonical = `${SITE_URL}/${routeLocale}/`
+const canonical = `${SITE_URL}/${routeLocale}`
 const htmlLang = routeLocale === 'es' ? 'es' : 'en'
 const ogLocale = routeLocale === 'es' ? 'es_ES' : 'en_US'
 
@@ -75,9 +75,9 @@ useHead({
     ],
     link: [
         { rel: 'canonical', href: canonical },
-        { rel: 'alternate', hreflang: 'en', href: `${SITE_URL}/en/` },
-        { rel: 'alternate', hreflang: 'es', href: `${SITE_URL}/es/` },
-        { rel: 'alternate', hreflang: 'x-default', href: `${SITE_URL}/en/` },
+        { rel: 'alternate', hreflang: 'en', href: `${SITE_URL}/en` },
+        { rel: 'alternate', hreflang: 'es', href: `${SITE_URL}/es` },
+        { rel: 'alternate', hreflang: 'x-default', href: `${SITE_URL}/en` },
     ],
 })
 </script>

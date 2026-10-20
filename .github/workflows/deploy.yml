@@ -73,7 +73,21 @@ jobs:
             --cache-control "public, max-age=31536000, immutable" \
             --exclude "index.html" \
             --exclude "en/index.html" \
-            --exclude "es/index.html"
+            --exclude "es/index.html" \
+            --exclude "robots.txt" \
+            --exclude "sitemap.xml"
+
+      # ── Paso 6b: Sube robots.txt y sitemap.xml con caché corta ──
+      # No llevan hash en el nombre: con 'immutable' los crawlers y proxies
+      # podrían seguir usando una versión obsoleta tras un cambio.
+      - name: Upload robots.txt and sitemap.xml with short cache
+        run: |
+          aws s3 cp frontend/dist/robots.txt s3://${{ secrets.S3_BUCKET_NAME }}/robots.txt \
+            --cache-control "public, max-age=3600" \
+            --content-type "text/plain; charset=utf-8"
+          aws s3 cp frontend/dist/sitemap.xml s3://${{ secrets.S3_BUCKET_NAME }}/sitemap.xml \
+            --cache-control "public, max-age=3600" \
+            --content-type "application/xml; charset=utf-8"
 
       # ── Paso 7: Sube los HTML sin caché larga ──
       # Los index.html (uno por idioma) NUNCA deben cachearse para que los
